@@ -1,0 +1,27 @@
+buildscript {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+  }
+
+  dependencies {
+    classpath "org.elasticsearch.gradle:build-tools:6.0.1"
+  }
+}
+apply plugin: 'elasticsearch.esplugin'
+apply plugin: 'idea'
+esplugin {
+  name 'slow-query-simulator'
+  description 'sleep for some number of seconds during a query'
+  classname 'org.elasticsearch.slowquerysimulator.SlowQuerySimulator'
+  // license of the plugin, may be different than the below license
+  licenseFile rootProject.file('LICENSE')
+  // copyright notices, may be different than the below notice
+  noticeFile rootProject.file('NOTICE.txt')
+}
+
+// license of this project
+licenseFile = rootProject.file('LICENSE')
+// copyright notices
+noticeFile = rootProject.file('NOTICE.txt')
